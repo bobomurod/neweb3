@@ -6,12 +6,25 @@ var web3 = new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/B
 console.log(web3.version);  //так можем узнать версию подключенной и унаследованной библиотеки 
 
 console.log(web3.version.network);  //в старых версиях работает, но сейчас используем версию 1
-var addr="0x260c29d0c228603b35b608cfa68f1476a1c763ca"
-web3.eth.getBalance(addr,function(error,result){
+var addr="0x260c29d0c228603b35b608cfa68f1476a1c763ca"   //тут се ясно 
+
+
+// web3.eth.getBalance(addr,function(error,result){
+//   if (!error) {
+//     console.log('balance is',web3.utils.fromWei(result,'ether'))
+//   }
+//     else {
+//         console.log("eror")
+//     }
+// })
+
+
+console.log(web3.eth.net.getId(function(error,result){
   if (!error) {
-    console.log('balance is',web3.utils.fromWei(result,'ether'))
+    console.log(result)
+  } else {
+    console.log(error)
   }
-    else {
-        console.log("eror")
-    }
-})
+  }))
+
+//web3.eth.net.getId().then(console.log);
