@@ -18,6 +18,7 @@ var addr="0x260c29d0c228603b35b608cfa68f1476a1c763ca"   //тут се ясно
 //     }
 // })
 
+web3.eth.getBalance(addr).then(console.log)
 
 console.log(web3.eth.net.getId(function(error,result){
   if (!error) {
