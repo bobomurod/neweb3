@@ -78,6 +78,9 @@ var storageContractAbi = [
 	}
 ];
 
-var storageContract = new web3.eth.Contract(storageContractAbi,"0x2309206CC02A25B2749C918CCa1B0258A9bB4CEF")
+var storageContract = new web3.eth.Contract(storageContractAbi, "0x2309206CC02A25B2749C918CCa1B0258A9bB4CEF")
 
 storageContract.methods.get().call().then(console.log);
+
+storageContract.getPastEvents('Numbers', {fromBlock: 0, toBlock: 'latest'},function(error,events){console.log(events);}).then(function(events){console.log(events)});
+
