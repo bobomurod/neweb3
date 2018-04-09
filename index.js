@@ -79,6 +79,5 @@ var storageContractAbi = [
 ];
 
 var storageContract = new web3.eth.Contract(storageContractAbi,"0x2309206CC02A25B2749C918CCa1B0258A9bB4CEF")
-storageContract.address = "0x2309206CC02A25B2749C918CCa1B0258A9bB4CEF"
 
 storageContract.methods.get().call().then(console.log);
