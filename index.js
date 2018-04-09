@@ -35,7 +35,7 @@ web3.eth.getBlockNumber().then(console.log);
 console.log("Gives list of accounts the node controls")
 web3.eth.getAccounts().then(console.log)
 
-var storageContractAbi = {[
+var storageContractAbi = [
 	{
 		"constant": true,
 		"inputs": [],
@@ -76,8 +76,9 @@ var storageContractAbi = {[
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-]}
-var storageContract = web3.eth.Contract(storageContractAbi)
+];
+
+var storageContract = new web3.eth.Contract(storageContractAbi)
 storageContract.address = "0x2309206CC02A25B2749C918CCa1B0258A9bB4CEF"
 
-var myStorage
+storageContract.methods.get().call().then(console.log);
