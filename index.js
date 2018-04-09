@@ -31,3 +31,53 @@ console.log(web3.eth.net.getId(function(error,result){
 //web3.eth.net.getId().then(console.log);
 console.log("Actual blck number is")
 web3.eth.getBlockNumber().then(console.log);
+//
+console.log("Gives list of accounts the node controls")
+web3.eth.getAccounts().then(console.log)
+
+var storageContractAbi = {[
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "get",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "number",
+				"type": "uint256"
+			}
+		],
+		"name": "Numbers",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_number",
+				"type": "uint256"
+			}
+		],
+		"name": "set",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]}
+var storageContract = web3.eth.Contract(storageContractAbi)
+storageContract.address = "0x2309206CC02A25B2749C918CCa1B0258A9bB4CEF"
+
+var myStorage
