@@ -29,3 +29,5 @@ console.log(web3.eth.net.getId(function(error,result){
   }))
 
 //web3.eth.net.getId().then(console.log);
+console.log("Actual blck number is")
+web3.eth.getBlockNumber().then(console.log);
